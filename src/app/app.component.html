@@ -1,0 +1,50 @@
+<ng-container *ngIf="user; else loginTemplate">
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="setLang('en')">English</button>
+    <button mat-menu-item (click)="setLang('he')">עברית</button>
+  </mat-menu>
+
+  <header>
+    <form (ngSubmit)="addTask()" [formGroup]="taskForm">
+      <mat-form-field>
+        <mat-label>Add new task</mat-label>
+        <input [formControl]="task" matInput placeholder="Some task">
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="accent">{{ 'add-task' | transloco }}</button>
+    </form>
+
+    <div>
+      <button mat-icon-button (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>home</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="removeAll()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </header>
+
+  <div cdkDropListGroup class="container">
+    <div cdkDropList *ngFor="let list of lists | keyvalue"
+         [cdkDropListData]="list.value"
+         class="list"
+         (cdkDropListDropped)="drop($event)">
+      <h2>{{ list.key | transloco }}</h2>
+      <div class="list-content" *ngFor="let item of list.value; let itemIndex = index" cdkDrag>
+        <span>{{item}}</span>
+        <button (click)="deleteItem(list.key, item, itemIndex)" mat-icon-button><mat-icon>close</mat-icon></button>
+      </div>
+    </div>
+  </div>
+<!--  <button (click)="addToArray()">Add to Array</button>-->
+<!--  <button (click)="removeFromArray()">Remove from Array</button>-->
+</ng-container>
+
+<ng-template #loginTemplate>
+  <div class="login-screen">
+    <h3>Please Login</h3>
+    <button mat-raised-button color="accent" (click)="register()">Google login</button>
+  </div>
+</ng-template>

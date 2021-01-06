@@ -1,0 +1,11 @@
+{
+  "a-title-todo": "ToDo",
+  "b-title-progress": "In Progress",
+  "c-title-testing": "Testing",
+  "d-title-done": "Done",
+  "snackbar.added": "Added Successfully",
+  "snackbar.success": "Saved Successfully",
+  "snackbar.deleted": "Deleted Successfully",
+  "add-task": "Add Task",
+  "invalidTask": "Invalid Task!"
+}

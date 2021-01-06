@@ -1,0 +1,11 @@
+{
+  "a-title-todo": "משימות",
+  "b-title-progress": "בתהליך",
+  "c-title-testing": "בדיקות",
+  "d-title-done": "הסתיים",
+  "snackbar.added": "התווסף בהצלחה",
+  "snackbar.success": "נשמר בהצלחה",
+  "snackbar.deleted": "נמחק בהצלחה",
+  "add-task": "הוספת משימה",
+  "invalidTask": "יש להזין משימה!"
+}
